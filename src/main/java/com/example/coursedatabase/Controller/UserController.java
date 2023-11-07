@@ -1,6 +1,6 @@
 package com.example.coursedatabase.Controller;
 
-import com.example.coursedatabase.model.User;
+import com.example.coursedatabase.Model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
