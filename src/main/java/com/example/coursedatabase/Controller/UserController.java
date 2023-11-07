@@ -1,19 +1,26 @@
 package com.example.coursedatabase.Controller;
 
 import com.example.coursedatabase.Model.User;
+import com.example.coursedatabase.Service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping
-    public ResponseEntity<User> findAll(){
-        User u = new User(1L, "Maria", "maria@email.com", "11961568913", "12345");
-        return ResponseEntity.ok().body(u);
+    public ResponseEntity<List<User>> findAll(){
+        List<User> list = userService.findAll();
+        return ResponseEntity.ok().body(list);
     }
 
 }
