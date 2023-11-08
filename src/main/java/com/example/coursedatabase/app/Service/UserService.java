@@ -1,7 +1,7 @@
-package com.example.coursedatabase.Service;
+package com.example.coursedatabase.app.Service;
 
-import com.example.coursedatabase.Model.User;
-import com.example.coursedatabase.Repository.UserRepository;
+import com.example.coursedatabase.domain.model.User;
+import com.example.coursedatabase.infra.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

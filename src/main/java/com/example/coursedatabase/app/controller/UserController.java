@@ -1,7 +1,7 @@
-package com.example.coursedatabase.Controller;
+package com.example.coursedatabase.app.controller;
 
-import com.example.coursedatabase.Model.User;
-import com.example.coursedatabase.Service.UserService;
+import com.example.coursedatabase.domain.model.User;
+import com.example.coursedatabase.app.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
