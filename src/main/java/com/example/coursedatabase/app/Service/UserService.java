@@ -1,8 +1,11 @@
 package com.example.coursedatabase.app.Service;
 
+import com.example.coursedatabase.app.dto.UserDto;
+import com.example.coursedatabase.app.mapper.UserMapper;
 import com.example.coursedatabase.domain.model.User;
 import com.example.coursedatabase.infra.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,12 +17,17 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> findAll(){
-        return userRepository.findAll();
+    @Autowired
+    private UserMapper mapper;
+
+    public UserDto findAll(){
+        User users = this.userRepository.findAll().get(Math.toIntExact(1L));
+        return mapper.getModel().map(users, UserDto.class);
     }
 
-    public User findById(Long id){
+    public UserDto findById(Long id){
         Optional<User> obj = userRepository.findById(id);
-        return obj.get();
+//        return obj.get();
+        return mapper.getModel().map(obj, UserDto.class);
     }
 }
