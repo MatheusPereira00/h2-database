@@ -20,13 +20,13 @@ public class UserController {
     private UserService userService;
 
 //    @GetMapping
-//    public ResponseEntity<List<User>> findAll(){
-//        List<User> list = userService.findAll();
+//    public ResponseEntity<List<User>> findAllResponse(){
+//        List<User> list = userService.findAllResponse();
 //        return ResponseEntity.ok().body(list);
 //    }
 
     @GetMapping
-    public UserDto findAll(){
+    public List<UserDto> findAll(){
         return userService.findAll();
     }
 
