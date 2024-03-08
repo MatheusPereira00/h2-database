@@ -5,10 +5,7 @@ import com.example.coursedatabase.domain.model.User;
 import com.example.coursedatabase.app.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,10 +27,26 @@ public class UserController {
         return userService.findAll();
     }
 
+//    @GetMapping
+//    public List<UserDto> response(){
+//        return userService.response();
+//    }
+
+
+//    @GetMapping
+//    public List<UserDto> find(){
+//        return userService.find();
+//    }
+
     @GetMapping(value = "/{id}")
     public UserDto findById(@PathVariable Long id){
 //        User obj = userService.findById(id);
 //        return ResponseEntity.ok().body(obj);
         return userService.findById(id);
+    }
+
+    @PostMapping()
+    public User create(@RequestBody User user){
+        return userService.create(user);
     }
 }
